@@ -1,0 +1,12 @@
+{
+	"dockerfiles": {
+		"Dockerfile": [
+			{
+				"name": "ubuntu",
+				"tag": "bionic",
+				"digest": "e5dd9dbb37df5b731a6688fa49f4003359f6f126958c9c928f937bec69836320"
+			}
+		]
+	},
+	"composefiles": {}
+}

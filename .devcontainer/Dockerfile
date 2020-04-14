@@ -38,6 +38,11 @@ RUN FLUXCTL_VERSION="$(git ls-remote https://github.com/fluxcd/flux | grep refs/
     curl -fSsL "https://github.com/fluxcd/flux/releases/download/${FLUXCTL_VERSION}/fluxctl_linux_amd64" -o /usr/local/bin/fluxctl && \
     chmod +x /usr/local/bin/fluxctl
 
+## Install latest kubeseal
+RUN KUBESEAL_VERSION="$(git ls-remote https://github.com/bitnami-labs/sealed-secrets | grep refs/tags | grep -oE "[0-9]+\.[0-9]+\.[0-9]+$" | sort --version-sort | tail -n 1)" && \
+    curl -fSsL "https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL_VERSION}/kubeseal-linux-amd64" -o /usr/local/bin/kubeseal && \
+    chmod +x /usr/local/bin/kubeseal
+
 ## Install latest terraform
 RUN TERRAFORM_VERSION="$(curl -fSsL https://releases.hashicorp.com/terraform/ | grep -oE "[0-9]+\.[0-9]+\.[0-9]+" | head -n 1)" && \
     curl -fSsLO "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" && \

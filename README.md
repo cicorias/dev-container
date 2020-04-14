@@ -9,6 +9,7 @@
 * kubectl
 * helm
 * fluxctl
+* kubeseal
 * terraform
 * anaconda 3 distribution of python
 * go
@@ -25,7 +26,7 @@ docker pull mperel/dev-container
 * To build from scratch:
 
 ```
-docker build -f .devcontainer/Dockerfile -t dev .devcontainer
+docker build -f .devcontainer/Dockerfile -t mperel/dev-container .devcontainer
 ```
 
 * To run:
